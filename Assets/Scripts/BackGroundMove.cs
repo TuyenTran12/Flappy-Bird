@@ -19,11 +19,11 @@ public class BackGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Cho background đi về phía bên trái
+        //Let the background go to the left
         transform.Translate(Vector3.left * Time.deltaTime* moveSpeed);
 
-        //Cho các background có thể lập lại liên tục
-        if(Vector3.Distance(oldPosition, obj.transform.position) > moveRange)
+        //For backgrounds that can be repeated continuously
+        if (Vector3.Distance(oldPosition, obj.transform.position) > moveRange)
         {
             obj.transform.position = oldPosition;
         }

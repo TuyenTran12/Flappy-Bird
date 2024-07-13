@@ -11,8 +11,8 @@ public class gameController : MonoBehaviour
     int point = 0;
     public Text txtPoint;
 
-    public bool isEndGame, isStartGame = false; // Cho biết đã Start hoặc End game chưa
-    public GameObject btnStartGame, imgEndGame,btnEndGame; // Các UI
+    public bool isEndGame, isStartGame = false; // Indicates whether the game has been Started or Ended
+    public GameObject btnStartGame, imgEndGame,btnEndGame; // UI
     // Start is called before the first frame update
     void Start()
     {

@@ -11,23 +11,24 @@ public class PipesMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Cho các pipes random toạ độ y
+        //Give random pipes y coordinates
         transform.position = new Vector3(transform.position.x, Random.Range(-2, 2), 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Cho các pipes đi về phía bên trái
+        //Let the pipes go to the left
         transform.Translate(Vector3.left * Time.deltaTime * moveSpeed);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Di chuyển các pipes để chạy nhiều pipes không cần tạo
+        // Move pipes to run multiple pipes without creating them
         if (collision.gameObject.tag == "ResetPipe")
         {
             transform.position = new Vector3(transform.position.x + moveRange, Random.Range(-1, 1), 0);
         }
     }
+
 
 }

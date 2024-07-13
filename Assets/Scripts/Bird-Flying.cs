@@ -13,6 +13,8 @@ public class NewBehaviourScript : MonoBehaviour
     GameObject GC; // GameController
     GameObject Audio;
 
+    [SerializeField] private float rotationSpeed = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +27,7 @@ public class NewBehaviourScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Khi nhấn chuột thì bird sẽ bay lên
+        //When you click the mouse, the player will fly up
         if (Input.GetMouseButton(0))
         {
             if (!GC.GetComponent<gameController>().isEndGame && GC.GetComponent<gameController>().isStartGame)
@@ -36,7 +38,10 @@ public class NewBehaviourScript : MonoBehaviour
             }
         }
     }
-
+    private void FixedUpdate()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, rgbd2D.velocity.y * rotationSpeed);
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
